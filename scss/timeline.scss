@@ -8,20 +8,20 @@
   margin:             0;
   position:           relative;
 
-
   /* Spine */
-  &__spine{
+  &__spine-container{
     position:             absolute;
     left:                 ($container-width - $spine-width)/2;
     width:                $spine-width;
     height:               100%;
     z-index:              1;
-
-    > a, a:visited{
-      display:              block;
-      height:               100%;
-    }
   }
+
+  &__spine{
+    display:              block;
+    height:               100%;
+  }
+
 }
 
 
@@ -29,32 +29,35 @@
     EVENT BLOCK
 */
 .event{
-
-  float:            left;
-  clear:            left;
   width:            ($container-width - $spine-width)/2;
   margin-bottom:    15px;
   position:         relative;
   z-index:          2;
 
+  &_position_left{
+    float:            left;
+    clear:            left;
+  }
 
   &_position_right{
     float:            right;
     clear:            right;
-
-    .event__pointer{
-      left:                 -18px;
-      right:                auto;
-      background-position:  -61px -28px;
-    }
 
     & + .event{
       @extend .line:after;
     }
   }
 
+  &_position_center{
+    clear:                both;
+    width:                auto;
+    float:                none;
+  }
 
 
+  /*
+      Pointer
+  */
   &__pointer{
     background:       url(../images/icons-4.png) -41px -28px no-repeat;
     width:            19px;
@@ -68,15 +71,10 @@
     top:  40px;
   }
   &_position_right + & > &__pointer{
-    top:     40px;
+    top:  40px;
   }
 
-
   &_position_center{
-    clear:                both;
-    width:                auto;
-    float:                none;
-
     .event__pointer{
       background-image:     url(../images/icons-4.png);
       background-position:  -25px -28px;
@@ -88,13 +86,20 @@
     }
   }
 
-
-  &__unit{
-    background:         #fff;
-    padding:            5px;
-    border:             1px #C4CDE0 solid;
-    border-radius:      3px;
+  &_position_right{
+    .event__pointer{
+      left:                 -18px;
+      right:                auto;
+      background-position:  -61px -28px;
+    }
   }
+}
+
+.event-data{
+  background:         #fff;
+  padding:            5px;
+  border:             1px #C4CDE0 solid;
+  border-radius:      3px;
 }
 
 
