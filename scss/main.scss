@@ -1,15 +1,23 @@
 @import "global.scss";
+@import "compass/css3";
+
 
 .page{
-  background-color: $bg-color;
   margin:           0;
   padding:          0;
+
+  background-image: url('../images/subtle_dots.png')
 }
 
 
 .container {
   width:            $container-width;
+
   margin:           20px auto 0 auto;
+  padding:          0 20px;
+
+  //background-color: $bg-color;
+  //@include box-shadow($shadow-color 0 0 2.5em);
 }
 
 

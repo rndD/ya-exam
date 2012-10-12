@@ -28,7 +28,7 @@
 /*
     EVENT BLOCK
 */
-.event{
+.event-container{
   width:            ($container-width - $spine-width)/2;
   margin-bottom:    15px;
   position:         relative;
@@ -43,7 +43,7 @@
     float:            right;
     clear:            right;
 
-    & + .event{
+    & + .event-container{
       @extend .line:after;
     }
   }
@@ -53,7 +53,6 @@
     width:                auto;
     float:                none;
   }
-
 
   /*
       Pointer
@@ -75,7 +74,7 @@
   }
 
   &_position_center{
-    .event__pointer{
+    .event-container__pointer{
       background-image:     url(../images/icons-4.png);
       background-position:  -25px -28px;
       height:               21px;
@@ -87,19 +86,35 @@
   }
 
   &_position_right{
-    .event__pointer{
+    .event-container__pointer{
       left:                 -18px;
       right:                auto;
       background-position:  -61px -28px;
     }
   }
+
+
+
+
 }
 
-.event-data{
+.event{
   background:         #fff;
   padding:            5px;
   border:             1px #C4CDE0 solid;
   border-radius:      3px;
+
+  &__header{
+    border-bottom: 1px #CCC solid;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    font-size: 11px;
+  }
+
+  &__description{
+
+
+  }
 }
 
 
