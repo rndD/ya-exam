@@ -1,66 +1,16 @@
 @import "global.scss";
 
 
-/* Timeline */
-.b-container__timeline{
+.timeline{
   background:         url(../images/spine.png) top repeat-y;
   list-style:         none;
   padding:            0;
   margin:             0;
   position:           relative;
 
-  > li{
-    float:            left;
-    clear:            left;
-    width:            ($container-width - $spine-width)/2;
-    margin-bottom:    15px;
-    position:         relative;
-    z-index:          2;
-  }
-
-  > .right{
-    float:            right;
-    clear:            right;
-  }
-
-  .pointer{
-    width:            19px;
-    height:           15px;
-    position:         absolute;
-    right:            -18px;
-    top:              20px;
-  }
-
-  .right > .pointer{
-    left:                 -18px;
-    right:                auto;
-    background-position:  -61px -28px;
-  }
-
-  > .left + .right > .pointer{top:  40px;}
-  > .right + li > .pointer{top:     40px;}
-
-  /* Highlight */
-
-  .highlight{
-    clear:                both;
-    width:                auto;
-    float:                none;
-
-    .pointer{
-      background:           #fff;
-      background-position:  -26px -28px;
-      height:               21px;
-      width:                15px;
-      left:                 50%;
-      top:                  -20px !important;
-      margin-left:          -7px;
-    }
-  }
 
   /* Spine */
-
-  .spine{
+  &__spine{
     position:             absolute;
     left:                 ($container-width - $spine-width)/2;
     width:                $spine-width;
@@ -74,14 +24,77 @@
   }
 }
 
-/* Unit */
 
-.unit{
-  background:         #fff;
-  padding:            5px;
-  border:             1px #C4CDE0 solid;
-  border-radius:      3px;
+/*
+    EVENT BLOCK
+*/
+.event{
 
+  float:            left;
+  clear:            left;
+  width:            ($container-width - $spine-width)/2;
+  margin-bottom:    15px;
+  position:         relative;
+  z-index:          2;
+
+
+  &_position_right{
+    float:            right;
+    clear:            right;
+
+    .event__pointer{
+      left:                 -18px;
+      right:                auto;
+      background-position:  -61px -28px;
+    }
+
+    & + .event{
+      @extend .line:after;
+    }
+  }
+
+
+
+  &__pointer{
+    background:       url(../images/icons-4.png) -41px -28px no-repeat;
+    width:            19px;
+    height:           15px;
+    position:         absolute;
+    right:            -18px;
+    top:              20px;
+  }
+
+  &_position_left + &_position_right > &__pointer{
+    top:  40px;
+  }
+  &_position_right + & > &__pointer{
+    top:     40px;
+  }
+
+
+  &_position_center{
+    clear:                both;
+    width:                auto;
+    float:                none;
+
+    .event__pointer{
+      background-image:     url(../images/icons-4.png);
+      background-position:  -25px -28px;
+      height:               21px;
+      width:                15px;
+      left:                 50%;
+      top:                  -20px !important;
+      margin-left:          -7px;
+    }
+  }
+
+
+  &__unit{
+    background:         #fff;
+    padding:            5px;
+    border:             1px #C4CDE0 solid;
+    border-radius:      3px;
+  }
 }
 
 

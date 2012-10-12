@@ -1,24 +1,35 @@
 @import "global.scss";
-@import "timeline.scss";
+
+.page{
+  background-color: $bg-color;
+  margin:           0;
+  padding:          0;
+}
 
 
-.b-container {
-  width:    $container-width;
-  margin:   20px auto;
+.container {
+  width:            $container-width;
+  margin:           20px auto 0 auto;
 }
 
 
 
-.g-line:before,
-.g-line:after {
+.line:before,
+.line:after {
   content:  "";
   display:  table;
 }
 
-.g-line:after {
+.line:after {
   clear:    both;
 }
 
-.g-line {
+.line {
   *zoom:    1;
 }
+
+
+
+
+@import "timeline.scss";
+
