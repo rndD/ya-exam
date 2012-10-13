@@ -10,6 +10,12 @@
   margin: 20px auto 0 auto;
   padding: 0 20px; }
 
+.control-panel {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-color: #cccccc; }
+
 .line:before,
 .line:after,
 .event-container_position_right + .event-container {
@@ -87,12 +93,14 @@
     background-position: -61px -28px; }
 
 .event {
-  background: #fff;
-  padding: 5px;
-  border: 1px #C4CDE0 solid;
+  background: white;
+  border: 1px #cccccc solid;
   border-radius: 3px; }
   .event__header {
-    border-bottom: 1px #CCC solid;
-    padding-bottom: 5px;
-    margin-bottom: 15px;
-    font-size: 11px; }
+    padding: 0 5px;
+    background-color: #7f5959;
+    color: white;
+    font-size: 24px; }
+  .event__description {
+    padding: 5px;
+    margin-bottom: 15px; }

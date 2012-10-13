@@ -9,18 +9,19 @@
   background-image: url('../images/subtle_dots.png')
 }
 
-
 .container {
   width:            $container-width;
 
   margin:           20px auto 0 auto;
   padding:          0 20px;
-
-  //background-color: $bg-color;
-  //@include box-shadow($shadow-color 0 0 2.5em);
 }
 
-
+.control-panel{
+  position:        absolute;
+  top:             0px;
+  left:            0px;
+  background-color:$color1;
+}
 
 .line:before,
 .line:after {
@@ -35,8 +36,6 @@
 .line {
   *zoom:    1;
 }
-
-
 
 
 @import "timeline.scss";
