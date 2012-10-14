@@ -25,8 +25,12 @@ schedulerApp.Event = Backbone.Model.extend({
         presentationUrl: 'http://'
     },
 
-    prepareForTemplate: function() {
-
+    getData: function() {
+        var data = this.toJSON();
+        var date = moment.unix(data.date);
+        data.dateFromNow = date.fromNow();
+        data.calendarDatetime = date.format(schedulerApp.datetimeFormat);
+        return data;
     }
 });
 

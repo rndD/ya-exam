@@ -23,7 +23,7 @@ schedulerApp.EventView = Backbone.BemView.extend({
     },
 
     render: function() {
-        this.$el.html(this.template(this.model.toJSON()));
+        this.$el.html(this.template(this.model.getData()));
 
         this.$editForm = this.$el.find('.edit-form');
 
@@ -37,6 +37,8 @@ schedulerApp.EventView = Backbone.BemView.extend({
 
     endEdit: function(event) {
         event.preventDefault();
+
+        var success = true;
         var data = {};
         _.each(
             this.$editForm.serializeArray(),
@@ -45,9 +47,29 @@ schedulerApp.EventView = Backbone.BemView.extend({
             }
         );
 
-        this.model.save(data);
-        this.setMod('edit', 'no');
-        this.render();
+        if(data && data.date) {
+            console.log(data.date);
+            console.log(schedulerApp.datetimeFormat);
+
+            data.date = moment(data.date, schedulerApp.datetimeFormat);
+            if( data.date.isValid()) {
+                data.date = data.date.unix();
+            } else {
+                success = false;
+            }
+
+        } else {
+            success = false;
+        }
+
+        if(success){
+            this.model.save(data);
+            this.setMod('edit', 'no');
+            this.render();
+        } else {
+            alert('Ошибка валидации формы');
+        }
+
         return false;
     },
 

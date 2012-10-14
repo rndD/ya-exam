@@ -1,3 +1,4 @@
+
 schedulerApp.EventsList = Backbone.Collection.extend({
     localStorage: new Store('schedulerApp'),
 
