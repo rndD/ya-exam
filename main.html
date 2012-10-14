@@ -43,8 +43,11 @@
         <div class="event-container__pointer"></div>
         <div class="event event-container__event">
             <div class="event__header">
-                <div class="event__header-date">
+                <div class="event__header-date event__header-date_print_no">
                     {{ dateFromNow }}
+                </div>
+                <div class="event__header-date event__header-date_print_yes">
+                    {{ calendarDatetime }}
                 </div>
                 <div class="event__header-title">
                     {{- name }} от {{- speakerName }}
@@ -53,7 +56,9 @@
             <div class="event__description">
                 {{- description }}
             </div>
-            <a class="event__presentation-link" href="{{- presentationUrl }}">Ссылка на презентацию</a>
+            <div class="event__presentation-link">Ссылка на презентацию:
+                <a class="link" href="{{- presentationUrl }}">{{- presentationUrl }}</a>
+            </div>
             <div class="event__bottom event-controls">
                 <button class="event-controls__remove">Удалить</button>
                 <button class="event-controls__edit">Редактировать</button>

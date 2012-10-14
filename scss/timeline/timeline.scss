@@ -104,7 +104,7 @@
     .event-container__pointer{
       left:                 -20px;
       right:                auto;
-      @include          background-image(
+      @include              background-image(
           linear-gradient(left, $color2 60%, shade($color2, 30) 100%)
       );
     }

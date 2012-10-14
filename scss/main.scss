@@ -1,6 +1,13 @@
 @import "global.scss";
 @import "compass/css3";
 
+a{
+  color:            $color2;
+  &:visited{
+    color:          shade($color2, 30);
+  }
+}
+
 .page{
   margin:           0;
   padding:          0;
@@ -60,4 +67,5 @@
 
 
 @import "timeline/timeline.scss";
+@import "print.scss";
 

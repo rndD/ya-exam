@@ -1,0 +1,29 @@
+@media print {
+
+  .page{
+    background:   #fff;
+  }
+  .control-panel{
+    display:      none;
+  }
+  .timeline__spine{
+    display:      none;
+  }
+
+  .event-container{
+    @include      box-shadow(#fff 0 0 0 0);
+    width:        100%;
+    border:       none;
+    margin:       0 0 25px 0;
+  }
+
+  .event__header-date_print_yes{
+    display:      block;
+  }
+  .event__header-date_print_no{
+    display:      none;
+  }
+  .event__bottom{
+    display:      none;
+  }
+}

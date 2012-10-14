@@ -6,7 +6,7 @@
   &__header{
     padding:            0 5px 0 10px;
     min-height:         30px;
-    line-height:        28px;
+    line-height:        30px;
 
 
     @include            background-image(
@@ -24,6 +24,10 @@
       float:            right;
       padding:          1px;
       font-size:        14px;
+
+      &_print_yes{
+        display:        none;
+      }
     }
   }
 
@@ -34,7 +38,7 @@
 
   &__presentation-link{
     padding:            5px;
-    color:              $color2;
+
   }
 
   &__bottom{
