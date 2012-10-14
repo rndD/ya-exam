@@ -19,13 +19,28 @@ schedulerApp.EventsList = Backbone.Collection.extend({
 
     },
 
-    importEvents: function(newEvents) {
-        this.trigger('clear');
-        this.add(newEvents);
-        this.each(function(model) {
-            model.save();
-        });
-
+    importEvents: function(data) {
+        var success = true;
+        try {
+            var events = JSON.parse(data);
+            if(!events){
+                success = false;
+            }
+        } catch(e) {
+            if((e.name && e.name == "SyntaxError") || e == "SyntaxError") {
+                alert("Error: Не валидные данные");
+            } else {
+                alert("Error");
+            }
+            success = false;
+        }
+        if(success) {
+            this.trigger('clear');
+            this.add(events);
+            this.each(function(model) {
+                model.save();
+            });
+        }
     },
 
     clear: function(event) {

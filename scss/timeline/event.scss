@@ -1,0 +1,58 @@
+
+/*
+    EVENT BLOCK
+*/
+.event{
+  &__header{
+    padding:            0 5px 0 10px;
+    min-height:         30px;
+    line-height:        28px;
+
+
+    @include            background-image(
+        linear-gradient(top, $white 0%, shade($white, 10) 100%)
+    );
+    color:              $colorBlack;
+    border-bottom:      $color2 1px solid;
+    font-size:          20px;
+
+    &-title{
+
+    }
+
+    &-date{
+      float:            right;
+      padding:          1px;
+      font-size:        14px;
+    }
+  }
+
+  &__description{
+    padding:            5px;
+    margin-bottom:      15px;
+  }
+
+  &__presentation-link{
+    padding:            5px;
+    color:              $color2;
+  }
+
+  &__bottom{
+    background-color:   $color2;
+    border-top:         1px solid #D6D6D6;
+    padding-left:       10px;
+    text-align:         right;
+  }
+}
+
+/* Form */
+.edit-form{
+  padding:        5px;
+  margin-bottom:  15px;
+
+  &__label{
+    display:    block;
+
+  }
+
+}
