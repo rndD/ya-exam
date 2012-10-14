@@ -6,7 +6,7 @@
   .control-panel{
     display:      none;
   }
-  .timeline__spine{
+  .timeline__spine-container{
     display:      none;
   }
 
@@ -15,6 +15,9 @@
     width:        100%;
     border:       none;
     margin:       0 0 25px 0;
+    &__pointer{
+      display:      none;
+    }
   }
 
   .event__header-date_print_yes{
