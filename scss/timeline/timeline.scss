@@ -1,0 +1,138 @@
+@import "../_global.scss";
+@import "compass/css3";
+
+.timeline{
+  background:             url(../images/spine-blue.png) top repeat-y;
+  border-bottom:          3px $color2 solid;
+
+  padding:                40px 0 0 0;
+  margin:                 0;
+  position:               relative;
+  height:                 100%;
+
+  /* Spine */
+  &__spine-container{
+    position:             absolute;
+    left:                 ($container-width - $spine-width)/2;
+    width:                $spine-width;
+    height:               100%;
+    z-index:              1;
+  }
+
+  &__spine{
+    display:              block;
+    height:               100%;
+    cursor:               crosshair;
+  }
+
+}
+
+
+/*
+    EVENT CONTAINER
+*/
+.event-container{
+  position:           relative;
+
+  width:              ($container-width - $spine-width)/2;
+  margin-bottom:      15px;
+  z-index:            2;
+
+  background-color:   $color1;
+  border:             1px $color11 solid;
+  @include            border-radius(3px);
+  @include            box-shadow(
+      rgba(0, 0, 0, 0.2) 0 2px 6px 0,
+      rgba(0, 0, 0, 0.15) 0 25px 50px 0
+  );
+
+  &_position_left{
+    float:              left;
+    clear:              left;
+  }
+
+  &_position_right{
+    float:              right;
+    clear:              right;
+
+    & + .event-container{
+      clear:            both;
+    }
+  }
+
+  &_position_center{
+    clear:              both;
+    width:              auto;
+    float:              none;
+  }
+
+  /*
+      Pointer
+  */
+  &__pointer{
+    //background:       url(../images/icons-4.png) -41px -28px no-repeat;
+    //background:       $color2;
+    width:            20px;
+    height:           10px;
+    position:         absolute;
+    right:            -20px;
+    top:              30px;
+    @include          background-image(
+        linear-gradient(right, $color2 60%, shade($color2, 30) 100%)
+    );
+  }
+
+  &_position_left + &_position_right > &__pointer{
+    top:  50px;
+  }
+  &_position_right + & > &__pointer{
+    top:  20px;
+  }
+
+  &_position_center{
+    .event-container__pointer{
+      //background-position:  -25px -28px;
+      height:               10px;
+      width:                20px;
+      left:                 50%;
+      top:                  -20px !important;
+      margin-left:          -7px;
+    }
+  }
+
+  &_position_right{
+    .event-container__pointer{
+      left:                 -20px;
+      right:                auto;
+      @include              background-image(
+          linear-gradient(left, $color2 60%, shade($color2, 30) 100%)
+      );
+    }
+  }
+
+  /* Edit */
+  &__edit-form{
+    display:  none;
+  }
+
+  &_edit_yes{
+    .event-container__event{
+      display:  none;
+    }
+
+    .event-container__edit-form{
+      display:  block;
+    }
+  }
+
+}
+
+
+@import "timeline/event";
+
+
+
+
+
+
+
