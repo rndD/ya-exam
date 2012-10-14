@@ -30,7 +30,6 @@ schedulerApp.EventsList = Backbone.Collection.extend({
     clear: function(event) {
 
         console.dir(this.models);
-        //delete all models
         //TODO bug почему-то не удаляет все
         this.each(function(model) {
             model.destroy();

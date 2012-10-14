@@ -11,30 +11,35 @@ schedulerApp.EventView = Backbone.BemView.extend({
         'click .event-controls__edit': 'edit',
         'submit .edit-form': 'endEdit'
     },
+    $editForm: {},
 
     initialize: function() {
         this.blockName = this.className;
+        this.model.view = this;
 
+        this.on('edit', this.edit, this);
         this.model.on('change', this.render, this);
         this.model.on('destroy', this.remove, this);
-        this.model.view = this;
     },
 
     render: function() {
         this.$el.html(this.template(this.model.toJSON()));
-        this.setMod('position', this.position);
+
+        this.$editForm = this.$el.find('.edit-form');
+
         return this;
     },
 
     edit: function(event) {
         this.setMod('edit', 'yes');
+        this.$editForm.find('input').eq(0).focus();
     },
 
     endEdit: function(event) {
         event.preventDefault();
         var data = {};
         _.each(
-            this.$el.find('.edit-form').serializeArray(),
+            this.$editForm.serializeArray(),
             function(v) {
                 data[v.name] = v.value;
             }

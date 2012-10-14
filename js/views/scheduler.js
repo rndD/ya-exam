@@ -27,14 +27,15 @@ schedulerApp.AppView = Backbone.BemView.extend({
     },
 
     addNew: function(event) {
-
+        schedulerApp.Events.trigger('addNew');
     },
 
     addOne: function(event) {
         var view = new schedulerApp.EventView({ model: event }) ;
 
 
-        view.position = this.nextPosition;
+        var position = this.nextPosition;
+        view.setMod('position', position);
 
 
         this.getNextPosition();
