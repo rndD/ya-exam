@@ -27,7 +27,7 @@ schedulerApp.EventsList = Backbone.Collection.extend({
                 success = false;
             }
         } catch(e) {
-            if((e.name && e.name == "SyntaxError") || e == "SyntaxError") {
+            if((e.name && e.name === "SyntaxError") || e === "SyntaxError") {
                 alert("Error: Не валидные данные");
             } else {
                 alert("Error");
@@ -44,14 +44,10 @@ schedulerApp.EventsList = Backbone.Collection.extend({
     },
 
     clear: function(event) {
-
-        console.dir(this.models);
-        //TODO bug почему-то не удаляет все
-        this.each(function(model) {
+        _.each(this.toArray(), function(model) {
             model.destroy();
         });
 
-        console.log(this.models);
     },
 
     toJSON: function() {

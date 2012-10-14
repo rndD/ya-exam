@@ -24,7 +24,6 @@ schedulerApp.EventView = Backbone.BemView.extend({
 
     render: function() {
         this.$el.html(this.template(this.model.getData()));
-
         this.$editForm = this.$el.find('.edit-form');
 
         return this;
@@ -71,10 +70,6 @@ schedulerApp.EventView = Backbone.BemView.extend({
         }
 
         return false;
-    },
-
-    close: function() {
-
     },
 
     destroy: function() {

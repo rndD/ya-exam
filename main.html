@@ -3,37 +3,41 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" href="css/main.css">
-    <title>rndD ya-shri</title>
+    <title>Расписание ШРИ / Работа Калмакова Алексея</title>
 </head>
 <body class="page">
 
-<div class="control-panel-container">
-    <div class="control-panel">
-        <button class="button control-panel__button-clear">
-            Очистить
-        </button>
-        <button class="button control-panel__button-import">
-            Импорт
-        </button>
-        <button class="button control-panel__button-export">
-            Экспорт
-        </button>
-        <button class="button control-panel__button-add">
-            Добавить
-        </button>
-        <button class="button control-panel__button-tell-a-joke">
-            Рассказать анекдот
-        </button>
+<div class="absolute-container">
+    <div class="absolute-container__control-panel">
+        <div class="control-panel">
+            <button class="button control-panel__button-add">
+                Добавить
+            </button>
+            <button class="button control-panel__button-import">
+                Импорт
+            </button>
+            <button class="button control-panel__button-export">
+                Экспорт
+            </button>
+            <button class="button control-panel__button-clear">
+                Очистить
+            </button>
+            <button class="button control-panel__button-tell-a-joke">
+                Рассказать анекдот
+            </button>
+        </div>
     </div>
+
+
+
 </div>
+
 
 <div class="container">
     <div class="timeline line">
         <div class="timeline__spine-container">
            <div class="timeline__spine"></div>
         </div>
-
-
     </div>
 </div>
 
@@ -50,7 +54,10 @@
                     {{ calendarDatetime }}
                 </div>
                 <div class="event__header-title">
-                    {{- name }} от {{- speakerName }}
+                    {{- name }}
+                </div>
+                <div class="event__header-name">
+                    {{- speakerName }}
                 </div>
             </div>
             <div class="event__description">
@@ -92,6 +99,15 @@
         </form>
     </div>
 
+
+    <div class="template__modal">
+        <div class="modal absolute-container__modal">
+            {{ msg }}
+            <textarea class="modal__text">{{ text }}</textarea>
+            <button class="modal__ok">OK</button>
+        </div>
+    </div>
+
 </div>
 
 <!--Js-->
@@ -106,6 +122,7 @@
 
 <script src="js/models/event.js"></script>
 <script src="js/views/event.js"></script>
+<script src="js/views/modal.js"></script>
 <script src="js/collections/events-list.js"></script>
 <script src="js/views/scheduler.js"></script>
 <script src="js/app.js"></script>

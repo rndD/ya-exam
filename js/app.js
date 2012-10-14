@@ -13,13 +13,19 @@ $(function(){
     });
 
     $(".control-panel__button-import").on("click", function() {
-        var data = prompt("Вставте сюда данные:");
-        schedulerApp.Events.importEvents(data);
+        var modal = new schedulerApp.ModalView(
+            "Скопируйте сюда данные:",
+            "",
+            function(data) {
+                schedulerApp.Events.importEvents(data);
+            }
+        );
+
     });
 
     $(".control-panel__button-export").on("click", function() {
-        prompt(
-            "Скопируйте это и сохрание:",
+        var modal = new schedulerApp.ModalView(
+            "Скопируй это:",
             schedulerApp.Events.toJSON()
         );
     });
@@ -34,7 +40,7 @@ $(function(){
 
     if(schedulerApp.Events.length === 0){
         if(confirm("БД совсем пуста, может быть вам загрузить пару тройку дефолтных записей?")){
-            var events = [{"name":"Лекция по Javascript","date":1350578400,"theme":"Тема","description":"","speakerName":"azproduction","presentationUrl":"http://","presentation":"","id":"21647d91-17e3-eb14-21e2-e7f2c50e279e"},{"name":"Лекция XSLT","date":1350492000,"theme":"Тема","description":"","speakerName":"azproduction","presentationUrl":"http://","presentation":"","id":"56f0fba9-a2d0-dd00-7673-638d734b61cb"},{"name":"Лекция CSS","date":1350319200,"theme":"Тема","description":"","speakerName":"Veget","presentationUrl":"http://","presentation":"","id":"77cfd872-22e5-ac04-7dd8-f0375bcc7b7a"},{"name":"Лекция про шаблонизаторы","date":1350312000,"theme":"Тема","description":"","speakerName":"Veget","presentationUrl":"http://","presentation":"","id":"f206c3f6-2c9a-3045-f57a-82c94a765be5"},{"name":"Лекция Debuger","date":1350060000,"theme":"Тема","description":"","speakerName":"Mishanga","presentationUrl":"http://","presentation":"","id":"dd189fdf-b325-7d4c-dca2-1afa4b3235a0"},{"name":"Лекция BEM","date":1349541600,"theme":"Тема","description":"","speakerName":"Veget","presentationUrl":"http://","presentation":"","id":"1a56f2db-785d-bae4-67da-d05a4a289737"},{"name":"Факультатив BEM","date":1349452800,"theme":"Тема","description":"","speakerName":"Veget","presentationUrl":"http://","presentation":"","id":"bcedfa39-cd6f-aaa6-343e-89587707df49"},{"name":"Лекция дизайн","date":1349109600,"theme":"Тема","description":"","speakerName":"Mishanga","presentationUrl":"http://","presentation":"","id":"eefa64b1-efd2-fc73-35d6-b2724af3ec11"}];
+            var events = '[{"name":"Механизм работы браузера","date":1350507360,"description":"На всякий случай оставлю прямо тут ссылки из презентации, чтобы далеко не надо было ходить. Если кому-то интересны подробности работы движков рендеринга брауеров — советую всё это дело прочитать.","speakerName":"Роман Комаров","presentationUrl":"http://yadi.sk/d/wo1LfOGatbOM","id":"3efd0317-68c0-ed55-d1c0-4218780e1438"},{"name":"Кеширование на клиенте и сервере","date":1350420960,"description":"Егор Львовский приехал их Киева, чтобы рассказать вам про кеширование. Понравилось? Если пишите комментарий, то напишите отдельно про лектора (подача материала) и отдельно про содержание лекции","speakerName":"Егор Львовский","presentationUrl":"http://yadi.sk/d/EEEp53YstbNo","id":"1d2b061e-b1ae-6430-ccaa-7f99fcc0d993"},{"name":"HTTP-протокол","date":1350161760,"description":"Лекция про HTTP-протокол","speakerName":"Алексей Бережной","presentationUrl":"http://yadi.sk/d/waP8x8maqTKM","id":"83785dca-e572-35e6-1ce7-a880e6bb9524"},{"name":"Развертывание верстки","date":1349988960,"description":"Лекция про Развертывание и прочие моменты","speakerName":"Павел Пушкарев","presentationUrl":"http://yadi.sk/d/N4FYrhS3qTSI","id":"6146a9d9-01ab-0ecc-b2d9-41d15c26ed89"},{"name":"Языки программирования","date":1347987000,"description":"Это был просто высший класс! Лектор полностью оправдывает звание эксперта. Перед лекцией думал, что это будет что-то вроде обзора имеющихся языков программирования, но Алексей так построил свой доклад, что его можно слушать еще не один час наверное. Доказательством этого явилось то, что время отведенное на вопросы заняло больше чем время на лекцию. Под подобным впечатлением я был после лекции","speakerName":"Алексей Воинов","presentationUrl":"http://yadi.sk/d/LRpqvLuIv4UI","id":"d92987d2-4d6e-8907-8a43-5738c855fd66"},{"name":"Тестирование","date":1347979800,"description":"Ну что тут можно сказать, Марине однозначно зачет! Действительно интересно и увлекательно. Интересно было узнать как тестируют в компаниях масштаба Яндекса и какие виды тестирования бывают вообще","speakerName":"Марина Широчкина","presentationUrl":"http://yadi.sk/d/W7lDOetHqTWC","id":"15a49a3c-7716-71e4-4498-cfd4e4a168bc"},{"name":"Редакторы кода","date":1347727260,"description":"Вряд ли целью данной лекции было научить пользоваться каким-то редактором. Просто определили эдакий набор навыков, которыми должен обладать разработчик и дали понять, что время надо экономить. Спасибо!","speakerName":"Вячеслав Олиянчук ","presentationUrl":"https://github.com/yandex-shri/lectures/blob/master/05-editors.md","id":"846e492c-55b2-c2de-78a3-1cd0e65286cf"},{"name":"Командная строка Unix","date":1347717600,"description":"Знаком с лекциями, которые читал  Victor Ashik, в том числе и по Unix. Можно сказать одно - автор большой профи! Согласен с ним, что трудно уложиться в 45 минут с темой о которой можно говорить не один день. Но тем ценнее лекция, что за короткое время лектор смог компактно предоставить информацию по теме... и задал цель к которой нужно стремиться )После общения с таким мастером понимаешь, что ты ничего не знаешь, хотя конечно у меня хватает знаний, чтобы например, установить Linux и полностью настроить веб-сервер (со всеми сопутствующими компонентами) в этой системе.","speakerName":"Виктор Ашик","presentationUrl":"http://yadi.sk/d/3N0d6h9rlRA8","id":"779bc548-31a9-c989-c1c6-74fe5137dbcd"}]';
             schedulerApp.Events.importEvents(events);
         }
     }
