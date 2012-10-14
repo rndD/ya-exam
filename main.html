@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" href="css/main.css">
-    <title>Прототип верски</title>
+    <title>rndD ya-shri</title>
 </head>
 <body class="page">
 
@@ -34,37 +34,6 @@
            <div class="timeline__spine"></div>
         </div>
 
-        <div class="event-container event-container_position_left">
-            <div class="event-container__pointer"></div>
-            <div class="event">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse bibendum nibh eu justo cursus id porta nibh adipiscing. Ut tincidunt diam eget lacus suscipit faucibus eleifend risus porttitor. Vestibulum magna leo, rhoncus eget elementum vitae, malesuada eu mi. Aliquam erat volutpat. Ut a augue ac tortor tempus bibendum ac nec erat. Pellentesque aliquam tempus lectus, eget luctus enim tempor at. Sed viverra vestibulum massa, ac dictum odio faucibus nec. Vivamus quis eros non enim laoreet placerat et ut lectus. Praesent luctus nisl ac ipsum fermentum in gravida odio tincidunt. Quisque lacus lectus, convallis quis rutrum vitae, molestie et elit. Pellentesque sed velit et enim varius dapibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-
-                Sed vitae arcu sit amet lacus adipiscing commodo. Maecenas lorem urna, mollis laoreet ullamcorper eu, eleifend adipiscing enim. Curabitur at rutrum massa. Quisque id tellus non risus posuere adipiscing. Sed cursus consequat velit, vel convallis augue interdum eu. Donec in ante vel urna pellentesque faucibus laoreet ut lectus. Nulla nulla purus, iaculis et vulputate id, euismod eu arcu.
-
-            </div>
-        </div>
-
-        <div class="event-container event-container_position_right">
-            <div class="event-container__pointer"></div>
-            <div class="event">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse bibendum nibh eu justo cursus id porta nibh adipiscing. Ut tincidunt diam eget lacus suscipit faucibus eleifend risus porttitor. Vestibulum magna leo, rhoncus eget elementum vitae, malesuada eu mi. Aliquam erat volutpat. Ut a augue ac tortor tempus bibendum ac nec erat. Pellentesque aliquam tempus lectus, eget luctus enim tempor at. Sed viverra vestibulum massa, ac dictum odio faucibus nec. Vivamus quis eros non enim laoreet placerat et ut lectus. Praesent luctus nisl ac ipsum fermentum in gravida odio tincidunt. Quisque lacus lectus, convallis quis rutrum vitae, molestie et elit. Pellentesque sed velit et enim varius dapibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-
-                Sed vitae arcu sit amet lacus adipiscing commodo. Maecenas lorem urna, mollis laoreet ullamcorper eu, eleifend adipiscing enim. Curabitur at rutrum massa. Quisque id tellus non risus posuere adipiscing. Sed cursus consequat velit, vel convallis augue interdum eu. Donec in ante vel urna pellentesque faucibus laoreet ut lectus. Nulla nulla purus, iaculis et vulputate id, euismod eu arcu.
-
-
-            </div>
-        </div>
-
-        <div class="event-container event-container_position_center">
-            <div class="event-container__pointer"></div>
-            <div class="event">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse bibendum nibh eu justo cursus id porta nibh adipiscing. Ut tincidunt diam eget lacus suscipit faucibus eleifend risus porttitor. Vestibulum magna leo, rhoncus eget elementum vitae, malesuada eu mi. Aliquam erat volutpat. Ut a augue ac tortor tempus bibendum ac nec erat. Pellentesque aliquam tempus lectus, eget luctus enim tempor at. Sed viverra vestibulum massa, ac dictum odio faucibus nec. Vivamus quis eros non enim laoreet placerat et ut lectus. Praesent luctus nisl ac ipsum fermentum in gravida odio tincidunt. Quisque lacus lectus, convallis quis rutrum vitae, molestie et elit. Pellentesque sed velit et enim varius dapibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-
-                Sed vitae arcu sit amet lacus adipiscing commodo. Maecenas lorem urna, mollis laoreet ullamcorper eu, eleifend adipiscing enim. Curabitur at rutrum massa. Quisque id tellus non risus posuere adipiscing. Sed cursus consequat velit, vel convallis augue interdum eu. Donec in ante vel urna pellentesque faucibus laoreet ut lectus. Nulla nulla purus, iaculis et vulputate id, euismod eu arcu.
-
-            </div>
-        </div>
-
     </div>
 </div>
 
@@ -75,18 +44,60 @@
     <div class="template__event">
         <div class="event-container__pointer"></div>
         <div class="event-container__event event">
-            <div class="event__header">{{ date }} {{ name }} от {{ speakerName }}</div>
+            <div class="event__header">{{ date }} {{- name }} от {{- speakerName }}</div>
             <div class="event__description">
-                {{ description }}
+                {{- description }}
             </div>
             <div class="event__controls event-controls">
                 <button class="event-controls__remove">Удалить</button>
                 <button class="event-controls__edit">Редактировать</button>
-
             </div>
+        </div>
+
+        <form class="edit-form event-container__edit-form">
+
+            <input class="edit-form__name" name="name" type="text" value="{{- name }}"/>
+            <input class="edit-form__speakerName" name="speakerName" type="text" value="{{- speakerName }}"/>
+            <input class="edit-form__date" type="text" name="date" value="{{ date }}"/>
+            <textarea class="edit-form__description" name="description">{{- description }}</textarea>
+            <input class="edit-form__presentation" name="presentation" type="text"/>
+
+            <input type="submit" />
+        </form>
+    </div>
+
+
+
+    <div class="event-container event-container_position_left">
+        <div class="event-container__pointer"></div>
+        <div class="event">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse bibendum nibh eu justo cursus id porta nibh adipiscing. Ut tincidunt diam eget lacus suscipit faucibus eleifend risus porttitor. Vestibulum magna leo, rhoncus eget elementum vitae, malesuada eu mi. Aliquam erat volutpat. Ut a augue ac tortor tempus bibendum ac nec erat. Pellentesque aliquam tempus lectus, eget luctus enim tempor at. Sed viverra vestibulum massa, ac dictum odio faucibus nec. Vivamus quis eros non enim laoreet placerat et ut lectus. Praesent luctus nisl ac ipsum fermentum in gravida odio tincidunt. Quisque lacus lectus, convallis quis rutrum vitae, molestie et elit. Pellentesque sed velit et enim varius dapibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+            Sed vitae arcu sit amet lacus adipiscing commodo. Maecenas lorem urna, mollis laoreet ullamcorper eu, eleifend adipiscing enim. Curabitur at rutrum massa. Quisque id tellus non risus posuere adipiscing. Sed cursus consequat velit, vel convallis augue interdum eu. Donec in ante vel urna pellentesque faucibus laoreet ut lectus. Nulla nulla purus, iaculis et vulputate id, euismod eu arcu.
+
         </div>
     </div>
 
+    <div class="event-container event-container_position_right">
+        <div class="event-container__pointer"></div>
+        <div class="event">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse bibendum nibh eu justo cursus id porta nibh adipiscing. Ut tincidunt diam eget lacus suscipit faucibus eleifend risus porttitor. Vestibulum magna leo, rhoncus eget elementum vitae, malesuada eu mi. Aliquam erat volutpat. Ut a augue ac tortor tempus bibendum ac nec erat. Pellentesque aliquam tempus lectus, eget luctus enim tempor at. Sed viverra vestibulum massa, ac dictum odio faucibus nec. Vivamus quis eros non enim laoreet placerat et ut lectus. Praesent luctus nisl ac ipsum fermentum in gravida odio tincidunt. Quisque lacus lectus, convallis quis rutrum vitae, molestie et elit. Pellentesque sed velit et enim varius dapibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+            Sed vitae arcu sit amet lacus adipiscing commodo. Maecenas lorem urna, mollis laoreet ullamcorper eu, eleifend adipiscing enim. Curabitur at rutrum massa. Quisque id tellus non risus posuere adipiscing. Sed cursus consequat velit, vel convallis augue interdum eu. Donec in ante vel urna pellentesque faucibus laoreet ut lectus. Nulla nulla purus, iaculis et vulputate id, euismod eu arcu.
+
+
+        </div>
+    </div>
+
+    <div class="event-container event-container_position_center">
+        <div class="event-container__pointer"></div>
+        <div class="event">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse bibendum nibh eu justo cursus id porta nibh adipiscing. Ut tincidunt diam eget lacus suscipit faucibus eleifend risus porttitor. Vestibulum magna leo, rhoncus eget elementum vitae, malesuada eu mi. Aliquam erat volutpat. Ut a augue ac tortor tempus bibendum ac nec erat. Pellentesque aliquam tempus lectus, eget luctus enim tempor at. Sed viverra vestibulum massa, ac dictum odio faucibus nec. Vivamus quis eros non enim laoreet placerat et ut lectus. Praesent luctus nisl ac ipsum fermentum in gravida odio tincidunt. Quisque lacus lectus, convallis quis rutrum vitae, molestie et elit. Pellentesque sed velit et enim varius dapibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+            Sed vitae arcu sit amet lacus adipiscing commodo. Maecenas lorem urna, mollis laoreet ullamcorper eu, eleifend adipiscing enim. Curabitur at rutrum massa. Quisque id tellus non risus posuere adipiscing. Sed cursus consequat velit, vel convallis augue interdum eu. Donec in ante vel urna pellentesque faucibus laoreet ut lectus. Nulla nulla purus, iaculis et vulputate id, euismod eu arcu.
+
+        </div>
+    </div>
 </div>
 
 <!--Js-->
@@ -111,7 +122,7 @@ $(function(){
 
     var app = new schedulerApp.AppView();
     $(".control-panel__button-clear").on("click", function() {
-        app.trigger("clearAll");
+        schedulerApp.Events.trigger('clear');
     });
 
     $(".control-panel__button-import").on("click", function() {
@@ -131,8 +142,7 @@ $(function(){
             success = false;
         }
         if(success) {
-            app.trigger("clearAll");
-            schedulerApp.Events.reset(events);
+            schedulerApp.Events.importEvents(events);
         }
 
     });
@@ -142,6 +152,14 @@ $(function(){
             "Скопируйте это и сохрание:",
             schedulerApp.Events.toJSON()
         );
+    });
+
+    $(".control-panel__button-add").on("click", function() {
+        schedulerApp.Events.addNew();
+    });
+
+    $(".control-panel__button-tell-a-joke").on("click", function() {
+        alert('Заходит джавист в столовую и говорит "Паблик статик файнал Борщ борщ равно нью Борщ, пожалуйста"');
     });
 
 

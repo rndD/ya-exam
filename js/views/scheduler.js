@@ -2,7 +2,7 @@ schedulerApp.AppView = Backbone.BemView.extend({
     el: '.timeline',
 
     events: {
-//        'clearAll': 'clearAll'
+        'click .timeline__spine': 'addNew'
     },
 
     initialize: function() {
@@ -10,7 +10,6 @@ schedulerApp.AppView = Backbone.BemView.extend({
         schedulerApp.Events.on('reset', this.addAll, this);
         schedulerApp.Events.fetch();
 
-        this.bind('clearAll', this.clearAll);
 
     },
 
@@ -27,6 +26,10 @@ schedulerApp.AppView = Backbone.BemView.extend({
       }
     },
 
+    addNew: function(event) {
+
+    },
+
     addOne: function(event) {
         var view = new schedulerApp.EventView({ model: event }) ;
 
@@ -39,16 +42,10 @@ schedulerApp.AppView = Backbone.BemView.extend({
     },
 
     addAll: function() {
-        this.$el.html('');
-        schedulerApp.Events.each(this.addOne, this);
-    },
 
-    clearAll: function() {
-        schedulerApp.Events.reset([], { silent: true } );
-        //TODO: убрать этот хак, и сделать вызов дестрой у каждой модели.
-        localStorage.clear();
-        this.$el.html('');
+        schedulerApp.Events.each(this.addOne, this);
     }
+
 
 
 });

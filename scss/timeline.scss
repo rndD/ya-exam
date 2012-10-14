@@ -20,6 +20,7 @@
   &__spine{
     display:              block;
     height:               100%;
+    cursor:               pointer;
   }
 
 }
@@ -29,10 +30,16 @@
     EVENT BLOCK
 */
 .event-container{
-  width:            ($container-width - $spine-width)/2;
-  margin-bottom:    15px;
-  position:         relative;
-  z-index:          2;
+  position:       relative;
+
+  width:          ($container-width - $spine-width)/2;
+  margin-bottom:  15px;
+  z-index:        2;
+
+  background:     $color0;
+
+  border:         1px $color1 solid;
+  border-radius:  3px;
 
   &_position_left{
     float:            left;
@@ -94,14 +101,27 @@
   }
 
 
+  /* Edit */
+  &__edit-form{
+    display: none;
+
+
+
+  }
+
+  &_edit_yes{
+    .event-container__event{
+      display: none;
+    }
+    .event-container__edit-form{
+      display: block;
+    }
+  }
 
 
 }
 
 .event{
-  background:         $color0;
-  border:             1px $color1 solid;
-  border-radius:      3px;
 
   &__header{
     padding:            0 5px;

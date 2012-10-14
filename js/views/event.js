@@ -1,4 +1,5 @@
 _.templateSettings.interpolate = /\{\{(.*?)\}\}/g;
+_.templateSettings.escape = /\{\{-(.*?)\}\}/g;
 
 schedulerApp.EventView = Backbone.BemView.extend({
     tagName:  'div',
@@ -6,11 +7,12 @@ schedulerApp.EventView = Backbone.BemView.extend({
     position: 'left',
     template: _.template($('.template__event').html()),
     events: {
-        'click .event-controls__remove': 'destroy'
+        'click .event-controls__remove': 'destroy',
+        'click .event-controls__edit': 'edit',
+        'submit .edit-form': 'endEdit'
     },
 
     initialize: function() {
-
         this.blockName = this.className;
 
         this.model.on('change', this.render, this);
@@ -24,8 +26,24 @@ schedulerApp.EventView = Backbone.BemView.extend({
         return this;
     },
 
-    edit: function() {
-        this.setMod('edit-mode', 'yes');
+    edit: function(event) {
+        this.setMod('edit', 'yes');
+    },
+
+    endEdit: function(event) {
+        event.preventDefault();
+        var data = {};
+        _.each(
+            this.$el.find('.edit-form').serializeArray(),
+            function(v) {
+                data[v.name] = v.value;
+            }
+        );
+
+        this.model.save(data);
+        this.setMod('edit', 'no');
+        this.render();
+        return false;
     },
 
     close: function() {
