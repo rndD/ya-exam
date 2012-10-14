@@ -55,14 +55,28 @@
         </div>
 
         <form class="edit-form event-container__edit-form">
+            <label class="edit-form__label">
+                Название:
+                <input class="edit-form__name" name="name" type="text" value="{{- name }}"/>
+            </label>
+            <label class="edit-form__label">
+                Докладчик:
+                <input class="edit-form__speakerName" name="speakerName" type="text" value="{{- speakerName }}"/>
+            </label>
+            <label class="edit-form__label">
+                Дата-время:
+                <input class="edit-form__date" type="text" name="date" value="{{ date }}"/>
+            </label>
+            <label class="edit-form__label">
+                Тезисы:
+                <textarea class="edit-form__description" name="description">{{- description }}</textarea>
+            </label>
+            <label class="edit-form__label">
+                Ссылка на презентацию:
+                <input class="edit-form__presentation" name="presentation" type="text"/>
+            </label>
 
-            <input class="edit-form__name" name="name" type="text" value="{{- name }}"/>
-            <input class="edit-form__speakerName" name="speakerName" type="text" value="{{- speakerName }}"/>
-            <input class="edit-form__date" type="text" name="date" value="{{ date }}"/>
-            <textarea class="edit-form__description" name="description">{{- description }}</textarea>
-            <input class="edit-form__presentation" name="presentation" type="text"/>
-
-            <input type="submit" />
+            <input type="submit" value="Сохранить" />
         </form>
     </div>
 
@@ -144,7 +158,6 @@ $(function(){
         if(success) {
             schedulerApp.Events.importEvents(events);
         }
-
     });
 
     $(".control-panel__button-export").on("click", function() {

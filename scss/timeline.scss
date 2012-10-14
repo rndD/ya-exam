@@ -1,5 +1,5 @@
 @import "global.scss";
-
+@import "compass/css3";
 
 .timeline{
   background:         url(../images/spine.png) top repeat-y;
@@ -20,7 +20,7 @@
   &__spine{
     display:              block;
     height:               100%;
-    cursor:               pointer;
+    cursor:               crosshair;
   }
 
 }
@@ -39,7 +39,11 @@
   background:     $color0;
 
   border:         1px $color1 solid;
-  border-radius:  3px;
+  @include        border-radius(3px);
+  @include        box-shadow(
+      rgba(0, 0, 0, 0.2) 0 2px 6px 0,
+      rgba(0, 0, 0, 0.15) 0 25px 50px 0
+  );
 
   &_position_left{
     float:            left;
@@ -103,31 +107,27 @@
 
   /* Edit */
   &__edit-form{
-    display: none;
-
-
-
+    display:  none;
   }
 
   &_edit_yes{
     .event-container__event{
-      display: none;
+      display:  none;
     }
+
     .event-container__edit-form{
-      display: block;
+      display:  block;
     }
   }
-
-
 }
 
-.event{
 
+.event{
   &__header{
     padding:            0 5px;
     background-color:   $color2;
     color:              $color0;
-    font-size:          24px;
+    font-size:          20px;
   }
 
   &__description{
@@ -136,6 +136,16 @@
 
 
   }
+}
+
+.edit-form{
+  padding:        5px;
+  margin-bottom:  15px;
+
+  &__label{
+    display:    block;
+  }
+
 }
 
 
