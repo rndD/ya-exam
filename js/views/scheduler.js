@@ -11,14 +11,30 @@ schedulerApp.AppView = Backbone.BemView.extend({
         schedulerApp.Events.fetch();
 
         this.bind('clearAll', this.clearAll);
+
     },
 
     render: function() {
 
     },
 
+    nextPosition: "left",
+    getNextPosition: function() {
+      if(this.nextPosition === 'left') {
+          this.nextPosition = "right";
+      } else {
+          this.nextPosition = "left";
+      }
+    },
+
     addOne: function(event) {
         var view = new schedulerApp.EventView({ model: event }) ;
+
+
+        view.position = this.nextPosition;
+
+
+        this.getNextPosition();
         this.$el.append(view.render().el);
     },
 

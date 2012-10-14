@@ -1,7 +1,6 @@
 @import "global.scss";
 @import "compass/css3";
 
-
 .page{
   margin:           0;
   padding:          0;
@@ -9,19 +8,27 @@
   background-image: url('../images/subtle_dots.png')
 }
 
+
 .container {
   width:            $container-width;
-
-  margin:           20px auto 0 auto;
+  margin:           30px auto 0 auto;
   padding:          0 20px;
 }
 
-.control-panel{
-  position:        absolute;
-  top:             0px;
-  left:            0px;
-  background-color:$color1;
+.control-panel-container{
+  position:         fixed;
+  top:              0px;
+  left:             50%;
 }
+
+.control-panel{
+  position:         absolute;
+  background-color: $color1;
+  width:            500px;
+  margin-left:      -250px;
+  text-align:       center;
+}
+
 
 .line:before,
 .line:after {

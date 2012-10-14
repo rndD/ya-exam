@@ -63,14 +63,14 @@
     height:           15px;
     position:         absolute;
     right:            -18px;
-    top:              20px;
+    top:              30px;
   }
 
   &_position_left + &_position_right > &__pointer{
-    top:  40px;
+    top:  50px;
   }
   &_position_right + & > &__pointer{
-    top:  40px;
+    top:  30px;
   }
 
   &_position_center{

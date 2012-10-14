@@ -7,14 +7,20 @@
 
 .container {
   width: 902px;
-  margin: 20px auto 0 auto;
+  margin: 30px auto 0 auto;
   padding: 0 20px; }
+
+.control-panel-container {
+  position: fixed;
+  top: 0px;
+  left: 50%; }
 
 .control-panel {
   position: absolute;
-  top: 0px;
-  left: 0px;
-  background-color: #cccccc; }
+  background-color: #cccccc;
+  width: 500px;
+  margin-left: -250px;
+  text-align: center; }
 
 .line:before,
 .line:after,
@@ -74,11 +80,11 @@
     height: 15px;
     position: absolute;
     right: -18px;
-    top: 20px; }
+    top: 30px; }
   .event-container_position_left + .event-container_position_right > .event-container__pointer {
-    top: 40px; }
+    top: 50px; }
   .event-container_position_right + .event-container > .event-container__pointer {
-    top: 40px; }
+    top: 30px; }
   .event-container_position_center .event-container__pointer {
     background-image: url(../images/icons-4.png);
     background-position: -25px -28px;
