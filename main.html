@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" href="css/main.css">
     <title>Прототип верски</title>
 </head>
@@ -69,19 +70,24 @@
 
 
 <!--Templates-->
-<script class="template__event" type="text/template">
+<div class="template">
+
+    <div class="template__event">
         <div class="event-container__pointer"></div>
         <div class="event-container__event event">
-            <div class="event__header">{{ name }} от {{ speakerName }}</div>
+            <div class="event__header">{{ date }} {{ name }} от {{ speakerName }}</div>
             <div class="event__description">
                 {{ description }}
             </div>
-            <div class="event__date">
-                {{ date }}
-            </div>
+            <div class="event__controls event-controls">
+                <button class="event-controls__remove">Удалить</button>
+                <button class="event-controls__edit">Редактировать</button>
 
+            </div>
         </div>
-</script>
+    </div>
+
+</div>
 
 <!--Js-->
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
@@ -113,6 +119,9 @@ $(function(){
         try {
             var success = true;
             var events = JSON.parse(data);
+            if(!events){
+                success = false;
+            }
         } catch(e) {
             if((e.name && e.name == "SyntaxError") || e == "SyntaxError") {
                 alert("Error: Не валидные данные");
@@ -125,6 +134,7 @@ $(function(){
             app.trigger("clearAll");
             schedulerApp.Events.reset(events);
         }
+
     });
 
     $(".control-panel__button-export").on("click", function() {

@@ -44,7 +44,7 @@
     clear:            right;
 
     & + .event-container{
-      @extend .line:after;
+      clear:            both;
     }
   }
 

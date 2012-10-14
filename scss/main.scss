@@ -19,13 +19,14 @@
   position:         fixed;
   top:              0px;
   left:             50%;
+  z-index:          100;
 }
 
 .control-panel{
   position:         absolute;
   background-color: $color1;
-  width:            500px;
-  margin-left:      -250px;
+  width:            600px;
+  margin-left:      -300px;
   text-align:       center;
 }
 
@@ -42,6 +43,10 @@
 
 .line {
   *zoom:    1;
+}
+
+.template{
+  display:  none;
 }
 
 

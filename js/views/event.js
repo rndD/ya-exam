@@ -5,9 +5,9 @@ schedulerApp.EventView = Backbone.BemView.extend({
     className: 'event-container',
     position: 'left',
     template: _.template($('.template__event').html()),
-//    events: {
-//
-//    },
+    events: {
+        'click .event-controls__remove': 'destroy'
+    },
 
     initialize: function() {
 
@@ -33,6 +33,10 @@ schedulerApp.EventView = Backbone.BemView.extend({
     },
 
     destroy: function() {
-        this.model.destroy();
+        if(confirm("Вы уверены?")){
+            this.model.destroy();
+        }
     }
+
+
 });

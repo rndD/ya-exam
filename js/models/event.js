@@ -23,6 +23,10 @@ schedulerApp.Event = Backbone.Model.extend({
         description: '',
         speakerName: 'Ololosha',
         presentationUrl: 'http://'
+    },
+
+    prepareForTemplate: function() {
+
     }
 });
 
